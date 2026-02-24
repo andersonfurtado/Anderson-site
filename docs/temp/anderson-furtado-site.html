@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anderson Furtado — AI Governance Author & Educator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0a0a0a;
+    --paper: #f5f2eb;
+    --gold: #c8a96e;
+    --gold-light: #e8d5a3;
+    --slate: #3a3a3a;
+    --muted: #7a7a7a;
+    --accent: #1a3a2a;
+    --accent-light: #2d5c3f;
+    --rule: rgba(200,169,110,0.3);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NOISE TEXTURE OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 1.5rem 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(245,242,235,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 0.9rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--ink); }
+
+  .nav-cta {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--accent);
+    color: var(--paper) !important;
+    padding: 0.6rem 1.4rem;
+    border-radius: 2px;
+    transition: background 0.3s !important;
+  }
+
+  .nav-cta:hover { background: var(--accent-light) !important; color: var(--paper) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6rem 4rem 6rem 6rem;
+    position: relative;
+  }
+
+  .hero-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .hero-tag::before {
+    content: '';
+    display: block;
+    width: 2rem;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .hero-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-title {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(0.8rem, 1.2vw, 1rem);
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 2.5rem;
+    margin-top: 0.5rem;
+  }
+
+  .hero-statement {
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: var(--slate);
+    line-height: 1.8;
+    max-width: 480px;
+    margin-bottom: 3rem;
+    border-left: 2px solid var(--gold);
+    padding-left: 1.5rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--accent);
+    color: var(--paper);
+    padding: 1rem 2rem;
+    border-radius: 2px;
+    text-decoration: none;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-primary:hover {
+    background: var(--accent-light);
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(26,58,42,0.2);
+  }
+
+  .btn-secondary {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: transparent;
+    color: var(--ink);
+    padding: 1rem 2rem;
+    border-radius: 2px;
+    border: 1px solid rgba(10,10,10,0.2);
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--ink);
+    background: rgba(10,10,10,0.04);
+  }
+
+  .hero-right {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6rem 4rem;
+    overflow: hidden;
+  }
+
+  .hero-visual {
+    position: relative;
+    width: 100%;
+    max-width: 420px;
+  }
+
+  .hero-card {
+    background: var(--accent);
+    color: var(--paper);
+    padding: 3rem;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -30%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(200,169,110,0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-card-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-card-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 1.6;
+    color: rgba(245,242,235,0.9);
+    margin-bottom: 2rem;
+  }
+
+  .hero-credentials {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .credential-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.05em;
+    color: rgba(245,242,235,0.65);
+    line-height: 1.5;
+  }
+
+  .credential-dot {
+    width: 4px;
+    height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+    margin-top: 0.45rem;
+    flex-shrink: 0;
+  }
+
+  /* MARQUEE */
+  .marquee-section {
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    padding: 1rem 0;
+    overflow: hidden;
+    background: var(--ink);
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 3rem;
+    animation: marquee 25s linear infinite;
+    width: max-content;
+  }
+
+  .marquee-item {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .marquee-item::after {
+    content: '◆';
+    font-size: 0.4rem;
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 7rem 6rem;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 3rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .section-label::after {
+    content: '';
+    display: block;
+    height: 1px;
+    width: 3rem;
+    background: var(--gold);
+  }
+
+  .section-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+
+  .section-headline em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  /* ABOUT */
+  .about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 7rem 6rem;
+  }
+
+  .about .section-label { color: var(--gold); }
+  .about .section-label::after { background: var(--gold); }
+
+  .about .section-headline { color: var(--paper); }
+  .about .section-headline em { color: var(--gold); }
+
+  .about-body {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: rgba(245,242,235,0.75);
+    line-height: 1.9;
+  }
+
+  .about-body p + p { margin-top: 1.5rem; }
+
+  .about-right {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid rgba(200,169,110,0.2);
+    padding: 2rem 0;
+    gap: 2rem;
+  }
+
+  .stat-row:last-child {
+    border-bottom: 1px solid rgba(200,169,110,0.2);
+  }
+
+  .stat-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(245,242,235,0.5);
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+
+  /* AUTHORITY PROOF */
+  .authority {
+    background: var(--paper);
+  }
+
+  .authority-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border: 1px solid var(--rule);
+    margin-top: 4rem;
+  }
+
+  .authority-item {
+    background: var(--paper);
+    padding: 2.5rem;
+    transition: background 0.3s;
+  }
+
+  .authority-item:hover {
+    background: rgba(200,169,110,0.06);
+  }
+
+  .authority-org {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .authority-role {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .authority-desc {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    color: var(--muted);
+    line-height: 1.7;
+    letter-spacing: 0.03em;
+  }
+
+  /* PRODUCTS */
+  .products {
+    background: #0f1a14;
+    color: var(--paper);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .products::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    left: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(200,169,110,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .products .section-label { color: var(--gold); }
+  .products .section-label::after { background: var(--gold); }
+  .products .section-headline { color: var(--paper); }
+  .products .section-headline em { color: var(--gold); }
+
+  .products-intro {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: rgba(245,242,235,0.6);
+    max-width: 560px;
+    margin-bottom: 4rem;
+    line-height: 1.8;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .product-card {
+    border: 1px solid rgba(200,169,110,0.2);
+    padding: 3rem;
+    border-radius: 4px;
+    position: relative;
+    transition: border-color 0.3s, transform 0.3s;
+    background: rgba(255,255,255,0.02);
+  }
+
+  .product-card:hover {
+    border-color: rgba(200,169,110,0.5);
+    transform: translateY(-2px);
+  }
+
+  .product-card.featured {
+    border-color: var(--gold);
+    background: rgba(200,169,110,0.06);
+  }
+
+  .product-badge {
+    position: absolute;
+    top: -1px;
+    right: 2rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: var(--ink);
+    padding: 0.3rem 0.8rem;
+    border-radius: 0 0 2px 2px;
+  }
+
+  .product-type {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .product-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 600;
+    color: var(--paper);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+
+  .product-desc {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(245,242,235,0.6);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+  }
+
+  .product-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    color: rgba(200,169,110,0.7);
+    margin-bottom: 2rem;
+    line-height: 1.8;
+  }
+
+  .product-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--paper);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 1px solid rgba(245,242,235,0.2);
+    padding-bottom: 0.2rem;
+    transition: border-color 0.3s, gap 0.3s;
+  }
+
+  .product-link:hover {
+    border-color: var(--gold);
+    gap: 0.8rem;
+    color: var(--gold);
+  }
+
+  .product-link-primary {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: var(--ink);
+    padding: 0.9rem 1.8rem;
+    border-radius: 2px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s;
+  }
+
+  .product-link-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-1px);
+  }
+
+  /* VENTURES */
+  .ventures {
+    background: var(--paper);
+  }
+
+  .ventures-intro {
+    font-size: 1.1rem;
+    color: var(--slate);
+    max-width: 520px;
+    margin-bottom: 4rem;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+
+  .ventures-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid var(--rule);
+  }
+
+  .venture-item {
+    padding: 2.5rem;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    transition: background 0.3s;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+
+  .venture-item:nth-child(3n) { border-right: none; }
+  .venture-item:nth-last-child(-n+3) { border-bottom: none; }
+
+  .venture-item:hover { background: rgba(200,169,110,0.05); }
+
+  .venture-domain {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+
+  .venture-name {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .venture-desc {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+
+  .venture-arrow {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+    color: var(--gold);
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    transform: translateX(-4px);
+  }
+
+  .venture-item:hover .venture-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  /* O-1A / FOR PARTNERS */
+  .partners {
+    background: var(--accent);
+    color: var(--paper);
+    text-align: center;
+    padding: 7rem 6rem;
+  }
+
+  .partners .section-label {
+    color: var(--gold);
+    justify-content: center;
+  }
+
+  .partners .section-label::after { background: var(--gold); }
+
+  .partners .section-headline {
+    color: var(--paper);
+    max-width: 700px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .partners .section-headline em { color: var(--gold); }
+
+  .partners-sub {
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: rgba(245,242,235,0.65);
+    max-width: 560px;
+    margin: 0 auto 3.5rem;
+    line-height: 1.8;
+  }
+
+  .partners-options {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .partner-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid rgba(200,169,110,0.3);
+    color: rgba(245,242,235,0.6);
+    padding: 0.6rem 1.2rem;
+    border-radius: 100px;
+  }
+
+  /* FRAMEWORK SECTION */
+  .framework {
+    background: var(--paper);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+
+  .framework-visual {
+    position: relative;
+  }
+
+  .g3-diagram {
+    border: 1px solid var(--rule);
+    padding: 3rem;
+    position: relative;
+  }
+
+  .g3-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .g3-pillars {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1px;
+    background: var(--rule);
+  }
+
+  .g3-pillar {
+    background: var(--paper);
+    padding: 1.5rem 1rem;
+    text-align: center;
+  }
+
+  .g3-pillar-letter {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .g3-pillar-word {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .g3-footnote {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 1.5rem;
+    line-height: 1.7;
+  }
+
+  /* CONTACT / ADVISORY */
+  .advisory {
+    background: var(--paper);
+    border-top: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: start;
+  }
+
+  .advisory-note {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    line-height: 1.8;
+    border-left: 2px solid var(--gold);
+    padding-left: 1rem;
+  }
+
+  .advisory-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .form-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .form-input, .form-select, .form-textarea {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: var(--ink);
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(10,10,10,0.2);
+    padding: 0.6rem 0;
+    outline: none;
+    transition: border-color 0.3s;
+    width: 100%;
+  }
+
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: var(--accent);
+  }
+
+  .form-textarea { resize: none; height: 80px; }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: rgba(245,242,235,0.5);
+    padding: 3rem 6rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--paper);
+    margin-bottom: 0.3rem;
+  }
+
+  .footer-tagline {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(245,242,235,0.4);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  /* ANIMATIONS */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+    .nav-links { display: none; }
+    section { padding: 5rem 2rem; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { padding: 7rem 2rem 3rem; }
+    .hero-right { padding: 2rem; }
+    .about { grid-template-columns: 1fr; padding: 5rem 2rem; gap: 3rem; }
+    .authority-grid { grid-template-columns: 1fr; }
+    .products-grid { grid-template-columns: 1fr; }
+    .ventures-list { grid-template-columns: 1fr 1fr; }
+    .venture-item:nth-child(2n) { border-right: none; }
+    .venture-item:nth-child(3n) { border-right: 1px solid var(--rule); }
+    .framework { grid-template-columns: 1fr; padding: 5rem 2rem; gap: 3rem; }
+    .advisory { grid-template-columns: 1fr; padding: 5rem 2rem; gap: 3rem; }
+    footer { grid-template-columns: 1fr; padding: 3rem 2rem; }
+    .partners { padding: 5rem 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Anderson Furtado</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#products">Books & Courses</a></li>
+    <li><a href="#ventures">Ventures</a></li>
+    <li><a href="#framework">G3 AI</a></li>
+    <li><a href="#advisory" class="nav-cta">Work Together</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left fade-in">
+    <div class="hero-tag">Sacramento, California · Est. 2006</div>
+    <h1 class="hero-name">Anderson<br><em>Furtado</em></h1>
+    <div class="hero-title">AI Governance Author & Educator</div>
+    <p class="hero-statement">
+      I build frameworks, certifications, and ventures that help organizations implement AI with structure, accountability, and measurable impact.
+    </p>
+    <div class="hero-actions">
+      <a href="#products" class="btn-primary">Explore My Books →</a>
+      <a href="#advisory" class="btn-secondary">Advisory Inquiry</a>
+    </div>
+  </div>
+  <div class="hero-right fade-in">
+    <div class="hero-visual">
+      <div class="hero-card">
+        <div class="hero-card-label">On AI Governance</div>
+        <p class="hero-card-quote">"Most AI failures don't come from bad technology. They come from the absence of structure around it."</p>
+        <div class="hero-credentials">
+          <div class="credential-item">
+            <div class="credential-dot"></div>
+            <span>Board Member — Global Centre for Risk & Innovation (UN ECOSOC)</span>
+          </div>
+          <div class="credential-item">
+            <div class="credential-dot"></div>
+            <span>Brazil's Representative — OECD PISA Governing Board · Paris</span>
+          </div>
+          <div class="credential-item">
+            <div class="credential-dot"></div>
+            <span>International Author — Packt Publishing, London UK</span>
+          </div>
+          <div class="credential-item">
+            <div class="credential-dot"></div>
+            <span>Rio 2016 Olympics Security Governance · CGU National Award</span>
+          </div>
+          <div class="credential-item">
+            <div class="credential-dot"></div>
+            <span>CGEIT · ISACA Geographic Achievement Award · HBR Advisory Council</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item">AI Governance</span>
+    <span class="marquee-item">G3 AI Framework</span>
+    <span class="marquee-item">Packt Publishing UK</span>
+    <span class="marquee-item">CGEIT · ISACA</span>
+    <span class="marquee-item">UN ECOSOC Board</span>
+    <span class="marquee-item">OECD PISA Board</span>
+    <span class="marquee-item">AIxp Certification</span>
+    <span class="marquee-item">Olyven · California</span>
+    <span class="marquee-item">AI Governance</span>
+    <span class="marquee-item">G3 AI Framework</span>
+    <span class="marquee-item">Packt Publishing UK</span>
+    <span class="marquee-item">CGEIT · ISACA</span>
+    <span class="marquee-item">UN ECOSOC Board</span>
+    <span class="marquee-item">OECD PISA Board</span>
+    <span class="marquee-item">AIxp Certification</span>
+    <span class="marquee-item">Olyven · California</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div>
+    <div class="section-label">Who I Am</div>
+    <h2 class="section-headline">15 years building<br>AI systems that <em>actually work</em> at scale</h2>
+    <div class="about-body">
+      <p>I'm not a theorist. I've directed national AI-powered assessments for over 10 million students, represented Brazil at the OECD PISA Governing Board, and built machine learning models recognized by Harvard and UNESCO — achieving 98% accuracy in predicting Brazil's national education index.</p>
+      <p>Today, based in Sacramento, California, I channel that institutional knowledge into frameworks, books, certifications, and ventures that help organizations govern and implement AI responsibly — without losing speed or innovation.</p>
+      <p>My work sits at the intersection of three disciplines most professionals treat as separate: artificial intelligence, governance & law, and organizational strategy. The G3 AI Framework is the result of 15 years at that intersection.</p>
+    </div>
+  </div>
+  <div class="about-right">
+    <div class="stat-row">
+      <div>
+        <div class="stat-number">15+</div>
+        <div class="stat-label">Years in AI & Governance Leadership</div>
+      </div>
+      <div>
+        <div class="stat-number">10M+</div>
+        <div class="stat-label">Students in AI-powered assessments directed</div>
+      </div>
+    </div>
+    <div class="stat-row">
+      <div>
+        <div class="stat-number">98%</div>
+        <div class="stat-label">Accuracy — ML model recognized by Harvard & UNESCO</div>
+      </div>
+      <div>
+        <div class="stat-number">$1B+</div>
+        <div class="stat-label">Public portfolio managed across 30+ institutions</div>
+      </div>
+    </div>
+    <div class="stat-row">
+      <div>
+        <div class="stat-number">2</div>
+        <div class="stat-label">Books published internationally</div>
+      </div>
+      <div>
+        <div class="stat-number">6</div>
+        <div class="stat-label">Ventures built or co-founded</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AUTHORITY PROOF -->
+<section class="authority" id="credentials">
+  <div class="section-label">International Credentials</div>
+  <h2 class="section-headline">Recognized across <em>five continents</em></h2>
+  <p style="font-size:1.05rem; color:var(--slate); font-weight:300; line-height:1.8; max-width:600px; margin-bottom:3rem;">From the United Nations to the OECD, from the Olympic Games to Packt Publishing in London — a track record built in the highest-stakes environments, verified by institutions that don't credential lightly.</p>
+  <div class="authority-grid">
+
+    <div class="authority-item">
+      <div class="authority-org">United Nations · UN ECOSOC</div>
+      <div class="authority-role">Board Member — Global Centre for Risk & Innovation (GCRI)</div>
+      <div class="authority-desc">Serving on the board of GCRI — an organization in official consultative status with the United Nations Economic and Social Council (ECOSOC). Contributes to intergovernmental frameworks for ethical AI, systemic risk governance, and responsible innovation policy affecting member states worldwide.</div>
+    </div>
+
+    <div class="authority-item">
+      <div class="authority-org">OECD · Organisation for Economic Co-operation and Development</div>
+      <div class="authority-role">Brazil's Official Representative — PISA Governing Board</div>
+      <div class="authority-desc">Officially appointed to represent Brazil on the PISA Governing Board — the international body overseeing the world's most influential education assessment across 80+ countries. Contributed to cross-national evaluation methodology and education policy direction at OECD headquarters in Paris.</div>
+    </div>
+
+    <div class="authority-item">
+      <div class="authority-org">Rio 2016 Olympic & Paralympic Games</div>
+      <div class="authority-role">National Security Governance Lead — Portfolio & Projects Director</div>
+      <div class="authority-desc">Led the security and crisis coordination portfolio for the Rio 2016 Olympics and Paralympics — managing 30+ strategic projects, coordinating 88,000 security personnel, and overseeing a $200M+ budget across federal, state, and municipal authorities. Awarded by Brazil's Office of the Comptroller General (CGU) for governance innovation excellence.</div>
+    </div>
+
+    <div class="authority-item">
+      <div class="authority-org">Packt Publishing · London, United Kingdom</div>
+      <div class="authority-role">International Author — AI Strategies for Web Development</div>
+      <div class="authority-desc">Published by Packt — one of the world's foremost technical publishers, distributed across 180+ countries via Amazon, O'Reilly, and academic platforms globally. The book introduces the G3 AI Framework and positions Anderson among a select group of international authors defining the AI governance discipline.</div>
+    </div>
+
+    <div class="authority-item">
+      <div class="authority-org">ISACA · Information Systems Audit and Control Association</div>
+      <div class="authority-role">CGEIT Certified · Editorial Reviewer · Geographic Achievement Award</div>
+      <div class="authority-desc">Holds CGEIT — one of ISACA's most senior certifications in IT governance. Handpicked as Editorial Reviewer for ISACA Industry News, evaluating AI and governance articles for global publication standards. Recipient of the CGEIT Geographic Achievement Award — recognizing top distinction within ISACA's worldwide professional network.</div>
+    </div>
+
+    <div class="authority-item">
+      <div class="authority-org">Storyline Strategy · United States</div>
+      <div class="authority-role">Expert Council Member — Governance, Innovation & Leadership</div>
+      <div class="authority-desc">Selected member of Storyline Strategy's expert council in the United States — contributing governance expertise, qualitative research, and executive perspective to strategic communication frameworks across policy, technology, and social change. Engages alongside leaders from international institutions.</div>
+    </div>
+
+    <div class="authority-item">
+      <div class="authority-org">Harvard Business Review</div>
+      <div class="authority-role">Advisory Council Member</div>
+      <div class="authority-desc">Invited member of the HBR Advisory Council — contributing expert insight on leadership, innovation, and AI strategy to research programs that shape the direction of global business thinking and organizational practice.</div>
+    </div>
+
+    <div class="authority-item">
+      <div class="authority-org">Brazilian Ministry of Education — INEP</div>
+      <div class="authority-role">Director of National Assessments · Educational Merit Honor Award</div>
+      <div class="authority-desc">Directed ENEM, SAEB, and ENCCEJA for 10M+ students annually across Brazil. Pioneered ENEM Digital 2.0 with adaptive AI-powered testing. Developed ML models predicting Brazil's national education index (IDEB) at 98% accuracy — recognized by scholars from Harvard and UNESCO.</div>
+    </div>
+
+    <div class="authority-item">
+      <div class="authority-org">OAB · Brazilian Bar Association</div>
+      <div class="authority-role">Committee Member — AI Regulation, Governance & Digital Law</div>
+      <div class="authority-desc">Active member of the AI, Governance & Digital Law committee. Coordinates the AI Regulation Working Group, advises on legal frameworks for responsible AI adoption and corporate governance, and contributes to Brazil's national positioning in international AI regulatory discussions.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="section-label">Books & Certifications</div>
+  <h2 class="section-headline">Knowledge you can <em>act on</em> today</h2>
+  <p class="products-intro">Two published works. One certification launching soon. All built on the same foundation: AI governance that works in the real world, not just in theory.</p>
+
+  <div class="products-grid">
+
+    <div class="product-card featured">
+      <div class="product-badge">Available Now</div>
+      <div class="product-type">Book · Packt Publishing, UK</div>
+      <div class="product-title">AI Strategies for Web Development</div>
+      <p class="product-desc">Introduces the G3 AI Framework — a practical methodology for integrating AI into web platforms with governance, management, and strategic clarity built in from day one.</p>
+      <div class="product-meta">
+        Publisher: Packt Publishing (London, UK)<br>
+        Framework: G3 AI — Governance, Management & Strategy<br>
+        Audience: Developers, Product Leaders, CTOs
+      </div>
+      <a href="https://www.packtpub.com" target="_blank" class="product-link-primary">Get the Book →</a>
+    </div>
+
+    <div class="product-card featured">
+      <div class="product-badge">Available Now</div>
+      <div class="product-type">Book · Brasport Publishing, Brazil</div>
+      <div class="product-title">PGM Canvas: Transforming Vision into Real Benefits</div>
+      <p class="product-desc">A complete methodology for program management that bridges strategic intent and operational execution — used by leaders across public and private institutions in Brazil and internationally.</p>
+      <div class="product-meta">
+        Publisher: Brasport (São Paulo, Brazil)<br>
+        Framework: PGM Canvas — Program Governance Model<br>
+        Audience: Program Managers, Executives, Public Leaders
+      </div>
+      <a href="https://www.brasport.com.br" target="_blank" class="product-link-primary">Get the Book →</a>
+    </div>
+
+    <div class="product-card">
+      <div class="product-badge" style="background: var(--accent); color: var(--paper);">Coming in 30 Days</div>
+      <div class="product-type">Certification · AIxp.com</div>
+      <div class="product-title">AI Xcelence Professional (AIxp)</div>
+      <p class="product-desc">The professional certification for leaders who need to implement, govern, and communicate AI with credibility. Built on the G3 AI Framework. Designed for professionals who don't just want to understand AI — they need to lead it.</p>
+      <div class="product-meta">
+        Platform: AIxp.com<br>
+        Format: Online · Self-paced<br>
+        Audience: Managers, Directors, Board Members, Consultants
+      </div>
+      <a href="https://aixp.com" target="_blank" class="product-link">Join the Waitlist →</a>
+    </div>
+
+    <div class="product-card">
+      <div class="product-badge" style="background: var(--accent); color: var(--paper);">Coming Soon</div>
+      <div class="product-type">Course · G3AI.global</div>
+      <div class="product-title">G3 AI Framework — Full Program</div>
+      <p class="product-desc">A structured learning path through the complete G3 AI Framework: Governance, Management, and Strategy. From theory to implementation — with tools, templates, and real case studies from national-scale AI deployments.</p>
+      <div class="product-meta">
+        Platform: G3AI.global<br>
+        Format: Online · Structured modules<br>
+        Audience: Organizations implementing AI at scale
+      </div>
+      <a href="https://g3ai.global" target="_blank" class="product-link">Learn More →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- G3 AI FRAMEWORK -->
+<section class="framework" id="framework">
+  <div>
+    <div class="section-label">The G3 AI Framework</div>
+    <h2 class="section-headline">AI without structure<br>is just <em>expensive chaos</em></h2>
+    <p style="font-size:1.05rem; color:var(--slate); line-height:1.9; font-weight:300; margin-bottom:2rem;">
+      The G3 AI Framework was developed over 15 years of implementing AI in high-stakes environments — national education systems, public institutions, and complex governance structures.
+    </p>
+    <p style="font-size:1.05rem; color:var(--slate); line-height:1.9; font-weight:300; margin-bottom:2rem;">
+      It answers the question no other framework fully addresses: not just how to build AI, but how to govern it, manage it through change, and align it to strategic outcomes that stakeholders can actually see and trust.
+    </p>
+    <p style="font-size:1.05rem; color:var(--slate); line-height:1.9; font-weight:300; margin-bottom:2.5rem;">
+      Introduced in <em>AI Strategies for Web Development</em> (Packt, UK), the G3 AI Framework is now the foundation of the AIxp certification and the G3AI.global learning platform.
+    </p>
+    <a href="https://g3ai.global" target="_blank" class="btn-primary">Explore G3AI.global →</a>
+  </div>
+
+  <div class="framework-visual">
+    <div class="g3-diagram">
+      <div class="g3-title">The G3 AI Framework</div>
+      <div class="g3-pillars">
+        <div class="g3-pillar">
+          <div class="g3-pillar-letter">G</div>
+          <div class="g3-pillar-word">Governance</div>
+        </div>
+        <div class="g3-pillar">
+          <div class="g3-pillar-letter">G</div>
+          <div class="g3-pillar-word">Management</div>
+        </div>
+        <div class="g3-pillar">
+          <div class="g3-pillar-letter">G</div>
+          <div class="g3-pillar-word">Strategy</div>
+        </div>
+      </div>
+      <div class="g3-footnote">
+        Introduced in AI Strategies for Web Development<br>
+        Packt Publishing · London, UK · 2024<br><br>
+        A framework for organizations that need AI to be<br>
+        accountable, manageable, and strategically coherent.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VENTURES -->
+<section class="ventures" id="ventures">
+  <div class="section-label">Venture Portfolio</div>
+  <h2 class="section-headline">Building what I <em>believe in</em></h2>
+  <p class="ventures-intro">Each venture in this portfolio is a long-term bet on using AI and technology to create positive, lasting impact — in education, governance, and human capability.</p>
+
+  <div class="ventures-list">
+    <a href="https://olyven.co" target="_blank" class="venture-item">
+      <div class="venture-domain">olyven.co</div>
+      <div class="venture-name">Olyven</div>
+      <div class="venture-desc">Psychometric infrastructure, AI governance platforms, and educational technology for institutions that need measurement they can trust.</div>
+      <div class="venture-arrow">→</div>
+    </a>
+    <a href="https://aixp.com" target="_blank" class="venture-item">
+      <div class="venture-domain">aixp.com</div>
+      <div class="venture-name">AIxp</div>
+      <div class="venture-desc">AI Xcelence Professional — the certification for leaders who govern and implement AI in complex, real-world environments.</div>
+      <div class="venture-arrow">→</div>
+    </a>
+    <a href="https://g3ai.global" target="_blank" class="venture-item">
+      <div class="venture-domain">g3ai.global</div>
+      <div class="venture-name">G3 AI</div>
+      <div class="venture-desc">Framework, training, and community built around the G3 AI methodology — Governance, Management, and Strategy for AI implementation.</div>
+      <div class="venture-arrow">→</div>
+    </a>
+    <a href="https://empowerfull.ventures" target="_blank" class="venture-item">
+      <div class="venture-domain">empowerfull.ventures</div>
+      <div class="venture-name">Empowerfull</div>
+      <div class="venture-desc">A venture builder for social-impact startups in EdTech — co-founding and investing in ventures that scale positive change through technology.</div>
+      <div class="venture-arrow">→</div>
+    </a>
+    <a href="https://heximind.com" target="_blank" class="venture-item">
+      <div class="venture-domain">heximind.com</div>
+      <div class="venture-name">Heximind</div>
+      <div class="venture-desc">AI architecture and platform design for organizations building next-generation intelligent systems with structural integrity.</div>
+      <div class="venture-arrow">→</div>
+    </a>
+    <a href="https://mesaepapo.com.br" target="_blank" class="venture-item">
+      <div class="venture-domain">mesaepapo.com.br</div>
+      <div class="venture-name">Mesa e Papo</div>
+      <div class="venture-desc">Community and conversations at the intersection of technology, leadership, and social impact — in Portuguese, for the Brazilian market.</div>
+      <div class="venture-arrow">→</div>
+    </a>
+  </div>
+</section>
+
+<!-- FOR PARTNERS / ADVISORY -->
+<section class="partners" id="advisory">
+  <div class="section-label">Work Together</div>
+  <h2 class="section-headline">Select advisory<br>for <em>the right organizations</em></h2>
+  <p class="partners-sub">I take a very limited number of advisory and board engagements each year — reserved for organizations where my specific background in AI governance, public policy, and educational technology creates genuine strategic value.</p>
+  <div class="partners-options">
+    <span class="partner-tag">AI Governance Advisory</span>
+    <span class="partner-tag">Board Membership</span>
+    <span class="partner-tag">EdTech Strategy</span>
+    <span class="partner-tag">Institutional AI Implementation</span>
+    <span class="partner-tag">Co-founding via Empowerfull</span>
+  </div>
+  <a href="/cdn-cgi/l/email-protection#4e2f202a2b3c3d21200e212237382b20602d21" class="btn-primary" style="margin: 0 auto;">Send an Inquiry →</a>
+</section>
+
+<!-- CONTACT FORM -->
+<section class="advisory" style="background: var(--paper);">
+  <div>
+    <div class="section-label">Start a Conversation</div>
+    <h2 class="section-headline" style="font-size: 2.2rem;">Not sure where<br>to begin? <em>Start here.</em></h2>
+    <div class="advisory-note">
+      Whether you're interested in the books, the AIxp certification, an advisory engagement, or a venture partnership — this is the right place to reach out. I respond personally to every serious inquiry.
+    </div>
+    <p style="font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; color: var(--muted); line-height: 1.8;">
+      Based in Sacramento, California<br>
+      <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="51303f353423223e3f113e3d2827343f7f323e">[email&#160;protected]</a><br>
+      linkedin.com/in/andersonfurtado
+    </p>
+  </div>
+  <div>
+    <form class="advisory-form" onsubmit="return false;">
+      <div class="form-group">
+        <label class="form-label">Your Name</label>
+        <input type="text" class="form-input" placeholder="Full name">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Organization</label>
+        <input type="text" class="form-input" placeholder="Company or institution">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-input" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">I'm interested in</label>
+        <select class="form-select">
+          <option value="">Select one...</option>
+          <option>Books / Publications</option>
+          <option>AIxp Certification</option>
+          <option>G3 AI Framework Training</option>
+          <option>Advisory / Board Engagement</option>
+          <option>Venture Partnership (Empowerfull)</option>
+          <option>Speaking Engagement</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Brief Message</label>
+        <textarea class="form-textarea" placeholder="What's the context?"></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="align-self: flex-start; cursor: pointer; border: none;">Send Message →</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-name">Anderson Furtado</div>
+    <div class="footer-tagline">AI Governance Author & Educator · Sacramento, California</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="https://linkedin.com/in/andersonfurtado" target="_blank">LinkedIn</a></li>
+    <li><a href="https://g3ai.global" target="_blank">G3AI.global</a></li>
+    <li><a href="https://olyven.co" target="_blank">Olyven</a></li>
+    <li><a href="https://aixp.com" target="_blank">AIxp</a></li>
+  </ul>
+</footer>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  // Fade in on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(el => {
+      if (el.isIntersecting) {
+        el.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-
