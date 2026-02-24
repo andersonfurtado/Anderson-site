@@ -36,9 +36,9 @@ const credentials = [
     tag: "Publishing",
   },
   {
-    org: "Brazilian MEC",
-    subtitle: "Ministry of Education",
-    role: "Director of National Assessments — AI & Digital Literacy",
+    org: "Olympic Games · Rio 2016",
+    subtitle: "Ministry of Justice – Brazil",
+    role: "Portfolio & Project Manager · Olympic & Paralympic Games",
     tag: "Government",
   },
 ];

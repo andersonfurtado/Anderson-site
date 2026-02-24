@@ -36,10 +36,10 @@ const credentials = [
     desc: "Member of the OECD PISA Governing Board in Paris, shaping international education assessment and AI integration policy.",
   },
   {
-    org: "Brazilian MEC",
-    role: "National Assessment Director",
+    org: "Olympic Games · Rio 2016",
+    role: "Portfolio & Project Manager · Ministry of Justice",
     tag: "Government",
-    desc: "Directed large-scale national educational assessments for Brazil's Ministry of Education, reaching over 9 million participants.",
+    desc: "$200M+ portfolio · 30+ strategic initiatives · 88,000 security personnel. Awarded by the CGU for innovation in security governance.",
   },
 ];
 
