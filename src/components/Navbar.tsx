@@ -58,7 +58,7 @@ export default function Navbar() {
           }}
         >
           <span style={{ color: "var(--accent)" }}>AF</span>
-          <span style={{ color: "var(--text-muted)", marginLeft: "2px" }}>.dev</span>
+          <span style={{ color: "var(--text-muted)", marginLeft: "2px" }}>.ai</span>
         </a>
 
         {/* Desktop Nav */}

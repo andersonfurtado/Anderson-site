@@ -7,6 +7,12 @@ const footerLinks = [
   { label: "AIxp", href: "https://aixp.com" },
 ];
 
+const academicLinks = [
+  { label: "Lattes CNPq", href: "http://lattes.cnpq.br/8429416373228588" },
+  { label: "ORCID", href: "https://orcid.org/0000-0001-6706-0401" },
+  { label: "Google Scholar", href: "https://scholar.google.com/citations?user=Z1IjoDQAAAAJ&hl=en" },
+];
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -107,6 +113,56 @@ export default function Footer() {
         >
           © {year} Anderson Furtado
         </div>
+      </div>
+
+      {/* Academic profiles */}
+      <div
+        style={{
+          maxWidth: "1200px",
+          margin: "1.75rem auto 0",
+          paddingTop: "1.25rem",
+          borderTop: "1px solid rgba(99,102,241,0.08)",
+          display: "flex",
+          flexWrap: "wrap",
+          alignItems: "center",
+          gap: "0.5rem 1.75rem",
+        }}
+      >
+        <span
+          style={{
+            fontFamily: "var(--font-geist-mono)",
+            fontSize: "0.6rem",
+            letterSpacing: "0.1em",
+            textTransform: "uppercase",
+            color: "rgba(148,163,184,0.3)",
+          }}
+        >
+          Academic Profiles
+        </span>
+        {academicLinks.map((l) => (
+          <a
+            key={l.href}
+            href={l.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              fontFamily: "var(--font-geist-mono)",
+              fontSize: "0.65rem",
+              letterSpacing: "0.07em",
+              color: "rgba(148,163,184,0.35)",
+              textDecoration: "none",
+              transition: "color 0.2s",
+            }}
+            onMouseEnter={(e) =>
+              ((e.currentTarget as HTMLElement).style.color = "var(--accent-cyan)")
+            }
+            onMouseLeave={(e) =>
+              ((e.currentTarget as HTMLElement).style.color = "rgba(148,163,184,0.35)")
+            }
+          >
+            {l.label}
+          </a>
+        ))}
       </div>
     </footer>
   );

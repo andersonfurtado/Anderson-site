@@ -6,33 +6,33 @@ import { useRef } from "react";
 
 const ventures = [
   {
-    domain: "olyven.com",
+    domain: "olyven.co",
     name: "Olyven",
-    desc: "Premium olive oil brand from California — merging terroir, technology and sustainable agriculture.",
-    href: "https://olyven.com",
+    desc: "Organization focused on educational technologies, AI and institutional governance in education.",
+    href: "https://olyven.co",
   },
   {
     domain: "aixp.io",
     name: "AIxp",
-    desc: "AI certification and upskilling platform for professionals ready to govern and implement AI at enterprise scale.",
+    desc: "AI Xcelence Professional — structured programs, practical assessments and career-ready training focused on AI-powered skills, employability and professional credentials across industries.",
     href: "#",
   },
   {
     domain: "g3ai.global",
     name: "G3 AI",
-    desc: "Global platform for the G3 AI Framework — governance methodology for AI-first organizations.",
+    desc: "Global framework for AI governance and strategy — helping organizations govern, manage and strategize with artificial intelligence at institutional scale.",
     href: "https://g3ai.global",
   },
   {
-    domain: "empowerfull.co",
+    domain: "empowerfull.ventures",
     name: "Empowerfull",
-    desc: "Leadership and executive education platform focused on AI-era management and organizational transformation.",
+    desc: "Social impact venture builder in education, health, sustainability and technology.",
     href: "#",
   },
   {
     domain: "heximind.com",
-    name: "Heximind",
-    desc: "AI systems architecture studio — building production-grade AI infrastructure for regulated industries.",
+    name: "HexisMind",
+    desc: "Preventive intelligence for critical human systems.",
     href: "#",
   },
   {
