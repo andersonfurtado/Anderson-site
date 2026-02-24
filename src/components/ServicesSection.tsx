@@ -24,9 +24,9 @@ const credentials = [
     tag: "Policy",
   },
   {
-    org: "ISACA Silicon Valley",
-    subtitle: "ISACA",
-    role: "CGEIT Certified · Geographic Achievement Award",
+    org: "ISACA",
+    subtitle: "Editorial Reviewer · IT & AI Governance",
+    role: "Editorial Reviewer · IT & AI Governance",
     tag: "Certification",
   },
   {

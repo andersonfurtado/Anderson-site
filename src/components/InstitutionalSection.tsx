@@ -9,7 +9,7 @@ const credentials = [
     org: "UN ECOSOC",
     role: "Board Member · GCRI",
     tag: "International",
-    desc: "Engaged with the United Nations Economic and Social Council on global AI governance policy and digital equity frameworks.",
+    desc: "Board Member at the Global Center for Risk and Innovation (GCRI), engaged with the United Nations Economic and Social Council on global AI governance policy and digital equity frameworks.",
   },
   {
     org: "Packt Publishing UK",
@@ -19,9 +19,9 @@ const credentials = [
   },
   {
     org: "ISACA",
-    role: "CGEIT · Geographic Award",
+    role: "Editorial Reviewer · IT & AI Governance",
     tag: "Certification",
-    desc: "Certified in IT Governance (CGEIT) and recognized with ISACA's Geographic Award for contributions to AI governance in Silicon Valley.",
+    desc: "ISACA peer-reviewed editorial reviewer for international publications on IT Governance, Risk, and AI Governance — contributing to global digital trust standards.",
   },
   {
     org: "Harvard Business Review",
