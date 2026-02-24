@@ -107,7 +107,7 @@ export default function CTASection() {
 
               {/* Email CTA */}
               <a
-                href="mailto:anderson@andersonfurtado.com"
+                href="mailto:info@andersonfurtado.com"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -199,7 +199,7 @@ export default function CTASection() {
 
               <div style={{ marginTop: "2.5rem", display: "flex", flexDirection: "column", gap: "0.75rem" }}>
                 {[
-                  { icon: "→", text: "anderson@andersonfurtado.com" },
+                  { icon: "→", text: "info@andersonfurtado.com" },
                   { icon: "→", text: "Global · AI & Education" },
                   { icon: "→", text: "linkedin.com/in/andersonfurtado" },
                 ].map((item) => (
