@@ -6,59 +6,59 @@ import { useRef } from "react";
 
 const credentials = [
   {
-    org: "UN ECOSOC",
-    role: "Board Member · GCRI",
-    tag: "International",
-    desc: "Board Member at the Global Center for Risk and Innovation (GCRI), engaged with the United Nations Economic and Social Council on global AI governance policy and digital equity frameworks.",
+    org: "Brazilian Ministry of Education (INEP)",
+    role: "Director of National Assessments & Commission Member",
+    tag: "National Education Policy",
+    desc: "Led structural review and redesign of national assessment parameters (ENEM, SAEB, ENCCEJA), impacting 10M+ students annually. Developed AI-powered adaptive systems (ENEM Digital 2.0) and predictive models for IDEB with 98% accuracy.",
   },
   {
-    org: "Packt Publishing UK",
-    role: "Author — AI Strategies",
-    tag: "Publishing",
-    desc: "Published internationally by Packt, one of the world's leading technical publishers, on enterprise AI strategy and governance.",
+    org: "Brazilian Bar Association (OAB/DF)",
+    role: "Chair — AI Regulation Commission",
+    tag: "AI Regulation & Governance",
+    desc: "Led regulatory discussions and structured frameworks for AI governance and legal innovation in Brazil. Coordinated working groups integrating legal, technological, and institutional perspectives on AI oversight.",
   },
   {
-    org: "ISACA",
-    role: "Editorial Reviewer · IT & AI Governance",
-    tag: "Certification",
-    desc: "ISACA peer-reviewed editorial reviewer for international publications on IT Governance, Risk, and AI Governance — contributing to global digital trust standards.",
+    org: "POSEAD / Universidade Gama Filho",
+    role: "Founder — Postgraduate Program in Digital Law",
+    tag: "Academic Development",
+    desc: "Designed and implemented postgraduate programs in Digital Law and Technology Governance, bridging academia, regulation, and innovation.",
   },
   {
-    org: "Harvard Business Review",
-    role: "Advisory Council",
-    tag: "Advisory",
-    desc: "Contributor and advisory council member, bridging academic research and executive practice in AI leadership.",
+    org: "ABPMP — BPM CBOK Review",
+    role: "Contributor — Portfolio, Program & Project Management",
+    tag: "Global Standards",
+    desc: "Contributed to the ABPMP BPM CBOK — the international standard for Business Process Management — coordinating revision of governance models for portfolio, program, and project management methodologies.",
   },
   {
-    org: "OECD Paris",
-    role: "PISA Governing Board",
-    tag: "Policy",
-    desc: "Member of the OECD PISA Governing Board in Paris, shaping international education assessment and AI integration policy.",
+    org: "Brazilian Office of the Comptroller General (CGU)",
+    role: "4th National Best Practices Prize",
+    tag: "Public Innovation Award",
+    desc: "Awarded for innovative project governance methodology implemented during the Rio 2016 Olympic and Paralympic Games — recognized as national benchmark.",
   },
   {
-    org: "Olympic Games · Rio 2016",
-    role: "Portfolio & Project Manager · Ministry of Justice",
-    tag: "Government",
-    desc: "$200M+ portfolio · 30+ strategic initiatives · 88,000 security personnel. Awarded by the CGU for innovation in security governance.",
+    org: "Federal Data Processing Service (SERPRO)",
+    role: "Digital Transformation Lead",
+    tag: "National Digital Transformation",
+    desc: "Led creation of Brazil's first fully digital public contracting system with certified digital signatures (2009), eliminating physical processes and transforming procurement governance.",
   },
 ];
 
 const tagColors: Record<string, string> = {
-  International: "rgba(99,102,241,0.15)",
-  Publishing: "rgba(6,182,212,0.12)",
-  Certification: "rgba(139,92,246,0.12)",
-  Advisory: "rgba(99,102,241,0.15)",
-  Policy: "rgba(6,182,212,0.12)",
-  Government: "rgba(16,185,129,0.12)",
+  "National Education Policy": "rgba(6,182,212,0.12)",
+  "AI Regulation & Governance": "rgba(99,102,241,0.15)",
+  "Academic Development": "rgba(139,92,246,0.12)",
+  "Global Standards": "rgba(6,182,212,0.12)",
+  "Public Innovation Award": "rgba(251,191,36,0.12)",
+  "National Digital Transformation": "rgba(16,185,129,0.12)",
 };
 
 const tagTextColors: Record<string, string> = {
-  International: "var(--accent-glow)",
-  Publishing: "var(--accent-cyan)",
-  Certification: "#a78bfa",
-  Advisory: "var(--accent-glow)",
-  Policy: "var(--accent-cyan)",
-  Government: "#34d399",
+  "National Education Policy": "var(--accent-cyan)",
+  "AI Regulation & Governance": "var(--accent-glow)",
+  "Academic Development": "#a78bfa",
+  "Global Standards": "var(--accent-cyan)",
+  "Public Innovation Award": "#fbbf24",
+  "National Digital Transformation": "#34d399",
 };
 
 export default function InstitutionalSection() {
@@ -97,7 +97,7 @@ export default function InstitutionalSection() {
             }}
           >
             <span style={{ width: "20px", height: "1px", background: "var(--accent-cyan)", display: "inline-block" }} />
-            Institutional Recognition
+            National Impact & Institutional Innovation
           </div>
 
           <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: "2rem", flexWrap: "wrap" }}>
@@ -111,14 +111,14 @@ export default function InstitutionalSection() {
                 maxWidth: "600px",
               }}
             >
-              Trusted by governments,{" "}
+              Trusted Through{" "}
               <em style={{ fontStyle: "italic", color: "var(--accent-cyan)" }}>
-                global institutions
+                National Impact
               </em>{" "}
-              and publishers
+              & Institutional Innovation
             </h2>
-            <p style={{ fontSize: "0.95rem", color: "var(--text-muted)", maxWidth: "360px", lineHeight: 1.7 }}>
-              A track record built across policy, publishing, certification and government — not just conference stages.
+            <p style={{ fontSize: "0.95rem", color: "var(--text-muted)", maxWidth: "380px", lineHeight: 1.7 }}>
+              Large-scale governance, AI systems design, regulatory leadership, and digital transformation across public institutions.
             </p>
           </div>
         </motion.div>
