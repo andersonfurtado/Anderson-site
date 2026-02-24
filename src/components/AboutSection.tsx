@@ -5,8 +5,8 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 
 const stats = [
-  { value: "15+", label: "Years in AI & Tech" },
-  { value: "10M+", label: "Students Reached" },
+  { value: "6+", label: "Years in AI" },
+  { value: "9M+", label: "Assessment Participants" },
   { value: "98%", label: "Model Accuracy" },
   { value: "$1B+", label: "Portfolio Managed" },
   { value: "2", label: "Published Books" },
@@ -65,7 +65,7 @@ export default function AboutSection() {
                 marginBottom: "2rem",
               }}
             >
-              15 years building AI systems that actually{" "}
+              10+ years researching technology and building AI systems that actually{" "}
               <em style={{ fontStyle: "italic", color: "var(--accent-cyan)" }}>
                 work at scale
               </em>
@@ -73,7 +73,7 @@ export default function AboutSection() {
 
             <div style={{ display: "flex", flexDirection: "column", gap: "1.1rem" }}>
               <p style={{ fontSize: "1rem", lineHeight: 1.8, color: "rgba(148,163,184,0.85)" }}>
-                I&apos;m not just a theorist. Before writing frameworks, I deployed AI systems at production scale — managing billion-dollar portfolios, directing national education assessments, and advising global governance bodies.
+                I&apos;m not just a theorist. With 10+ years in technology research and educational assessment, and 6+ years deploying AI systems at production scale — I directed large-scale educational assessments reaching over 9 million participants, managed billion-dollar portfolios, and advised global governance bodies.
               </p>
               <p style={{ fontSize: "1rem", lineHeight: 1.8, color: "rgba(148,163,184,0.85)" }}>
                 Operating globally, I bridge the gap between technical implementation and institutional governance — translating complex AI realities into actionable strategy for executives, policymakers, and practitioners worldwide.

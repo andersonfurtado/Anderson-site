@@ -7,14 +7,6 @@ const fadeUp: Variants = {
   show: { opacity: 1, y: 0 },
 };
 
-const credentials = [
-  { org: "UN ECOSOC", role: "Board Member · GCRI" },
-  { org: "Packt Publishing UK", role: "Author — AI Strategies" },
-  { org: "ISACA", role: "CGEIT · Geographic Award" },
-  { org: "Harvard Business Review", role: "Advisory Council" },
-  { org: "OECD Paris", role: "PISA Governing Board" },
-];
-
 export default function HeroSection() {
   return (
     <section
@@ -114,18 +106,7 @@ export default function HeroSection() {
               </em>
             </h1>
 
-            {/* Subtitle */}
-            <p
-              style={{
-                fontSize: "clamp(1rem, 2vw, 1.3rem)",
-                color: "var(--text-secondary)",
-                marginBottom: "2rem",
-                fontWeight: 400,
-                letterSpacing: "-0.01em",
-              }}
-            >
-              AI Governance & Intelligent Systems Architecture
-            </p>
+            {/* Subtitle — removed, shown on photo */}
 
             {/* Statement */}
             <p
@@ -192,77 +173,59 @@ export default function HeroSection() {
             </div>
           </motion.div>
 
-          {/* Right card */}
+          {/* Right — portrait photo */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
             animate="show"
             transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
+            style={{ position: "relative", borderRadius: "16px", overflow: "hidden" }}
           >
-            <div
-              className="glass-card"
+            <img
+              src="/fotos/anderson-pb.jpg"
+              alt="Anderson Furtado"
               style={{
-                background: "var(--bg-surface)",
+                width: "100%",
+                height: "580px",
+                objectFit: "cover",
+                objectPosition: "center top",
+                display: "block",
+                filter: "brightness(0.82) contrast(1.04)",
+              }}
+            />
+            {/* Bottom gradient fade */}
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background: "linear-gradient(to bottom, transparent 50%, rgba(10,10,15,0.7) 100%)",
+                pointerEvents: "none",
+              }}
+            />
+            {/* Accent border */}
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
                 borderRadius: "16px",
-                padding: "2rem",
-                border: "1px solid var(--border)",
+                border: "1px solid rgba(99,102,241,0.25)",
+                pointerEvents: "none",
+              }}
+            />
+            {/* Name tag at bottom */}
+            <div
+              style={{
+                position: "absolute",
+                bottom: "1.5rem",
+                left: "1.5rem",
+                right: "1.5rem",
               }}
             >
-              <div
-                style={{
-                  fontSize: "0.7rem",
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  color: "var(--accent-cyan)",
-                  fontFamily: "var(--font-geist-mono)",
-                  marginBottom: "1.5rem",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                }}
-              >
-                <span style={{ width: "18px", height: "1px", background: "var(--accent-cyan)", display: "inline-block" }} />
-                Institutional Recognition
+              <div style={{ fontSize: "0.7rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--accent-cyan)", fontFamily: "var(--font-geist-mono)", marginBottom: "0.3rem" }}>
+                Anderson Furtado
               </div>
-
-              <blockquote
-                style={{
-                  fontSize: "0.95rem",
-                  lineHeight: 1.7,
-                  color: "var(--text-secondary)",
-                  marginBottom: "1.75rem",
-                  fontStyle: "italic",
-                }}
-              >
-                &ldquo;A global voice connecting AI governance, education policy, and enterprise strategy across institutions.&rdquo;
-              </blockquote>
-
-              <div style={{ display: "flex", flexDirection: "column", gap: "0.875rem" }}>
-                {credentials.map((c) => (
-                  <div
-                    key={c.org}
-                    style={{
-                      display: "flex",
-                      alignItems: "flex-start",
-                      gap: "0.75rem",
-                    }}
-                  >
-                    <span
-                      style={{
-                        width: "6px",
-                        height: "6px",
-                        borderRadius: "50%",
-                        background: "var(--accent-cyan)",
-                        marginTop: "6px",
-                        flexShrink: 0,
-                      }}
-                    />
-                    <div>
-                      <div style={{ fontSize: "0.85rem", color: "var(--text-primary)", fontWeight: 600 }}>{c.org}</div>
-                      <div style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}>{c.role}</div>
-                    </div>
-                  </div>
-                ))}
+              <div style={{ fontSize: "0.9rem", fontWeight: 600, color: "rgba(241,245,249,0.9)", lineHeight: 1.4 }}>
+                AI Governance & Intelligent Systems Architecture
               </div>
             </div>
           </motion.div>
@@ -274,6 +237,9 @@ export default function HeroSection() {
           .hero-grid {
             grid-template-columns: 1fr !important;
             gap: 3rem !important;
+          }
+          .hero-grid > div:last-child {
+            display: none;
           }
         }
       `}</style>

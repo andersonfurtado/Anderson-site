@@ -110,7 +110,7 @@ export default function CasesSection() {
             </em>
           </h2>
           <p style={{ fontSize: "1rem", color: "var(--text-secondary)", maxWidth: "520px" }}>
-            Books, certifications and programs that deliver real frameworks — not theory. Built from 15 years of hands-on AI implementation and governance work.
+            Books, certifications and programs that deliver real frameworks — not theory. Built from 10+ years of technology research, educational assessment, and AI governance work.
           </p>
         </motion.div>
 
