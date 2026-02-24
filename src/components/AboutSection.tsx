@@ -32,12 +32,56 @@ export default function AboutSection() {
           style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "5rem", alignItems: "start" }}
           className="about-grid"
         >
-          {/* Left */}
+          {/* Left — photo + text */}
           <motion.div
             initial={{ opacity: 0, x: -24 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
           >
+            {/* Portrait photo */}
+            <div
+              style={{
+                position: "relative",
+                borderRadius: "12px",
+                overflow: "hidden",
+                marginBottom: "2.5rem",
+                border: "1px solid rgba(99,102,241,0.18)",
+              }}
+            >
+              <img
+                src="/fotos/anderson2-pb.jpg"
+                alt="Anderson Furtado"
+                style={{
+                  width: "100%",
+                  height: "340px",
+                  objectFit: "cover",
+                  objectPosition: "center 20%",
+                  display: "block",
+                  filter: "brightness(0.82) contrast(1.06)",
+                }}
+              />
+              {/* Subtle bottom gradient */}
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background: "linear-gradient(to bottom, transparent 55%, rgba(17,17,24,0.65) 100%)",
+                  pointerEvents: "none",
+                }}
+              />
+              {/* Accent line */}
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  height: "2px",
+                  background: "var(--gradient-hero)",
+                }}
+              />
+            </div>
+
             <div
               style={{
                 fontSize: "0.7rem",
