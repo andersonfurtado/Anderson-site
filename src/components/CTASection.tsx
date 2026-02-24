@@ -128,22 +128,56 @@ export default function CTASection() {
               </a>
             </div>
 
-            {/* Right — placeholder stat card */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }} className="cta-stats">
-              {[
-                { label: "Advisory Engagements / Year", value: "Limited" },
-                { label: "Response Time", value: "< 48h" },
-                { label: "Primary Format", value: "Retainer / Project" },
-              ].map((s) => (
-                <div
-                  key={s.label}
-                  className="glass-card"
-                  style={{ padding: "1.5rem", borderRadius: "10px", display: "flex", justifyContent: "space-between", alignItems: "center", gap: "1rem" }}
-                >
-                  <span style={{ fontSize: "0.875rem", color: "var(--text-secondary)" }}>{s.label}</span>
-                  <span style={{ fontSize: "0.875rem", fontWeight: 700, color: "var(--accent-cyan)", fontFamily: "var(--font-geist-mono)" }}>{s.value}</span>
-                </div>
-              ))}
+            {/* Right — portrait photo */}
+            <div style={{ position: "relative", borderRadius: "16px", overflow: "hidden" }} className="cta-photo">
+              <img
+                src="/fotos/anderson.jpg"
+                alt="Anderson Furtado"
+                style={{
+                  width: "100%",
+                  height: "480px",
+                  objectFit: "cover",
+                  objectPosition: "center top",
+                  display: "block",
+                  filter: "brightness(0.75) contrast(1.05)",
+                }}
+              />
+              {/* Gradient overlay */}
+              <div
+                style={{
+                  position: "absolute",
+                  inset: 0,
+                  background: "linear-gradient(to bottom, rgba(10,10,15,0.05) 0%, rgba(10,10,15,0.0) 35%, rgba(10,10,15,0.78) 100%)",
+                  pointerEvents: "none",
+                }}
+              />
+              {/* Stats bar at bottom */}
+              <div
+                style={{
+                  position: "absolute",
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+                  padding: "1.5rem",
+                  backdropFilter: "blur(12px)",
+                  background: "rgba(10,10,15,0.55)",
+                  borderTop: "1px solid rgba(99,102,241,0.2)",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  gap: "1rem",
+                }}
+              >
+                {[
+                  { value: "< 48h", label: "Response" },
+                  { value: "Limited", label: "Spots / Year" },
+                  { value: "Retainer", label: "Format" },
+                ].map((s) => (
+                  <div key={s.label} style={{ textAlign: "center" }}>
+                    <div style={{ fontSize: "1.1rem", fontWeight: 700, color: "var(--accent-cyan)", fontFamily: "var(--font-geist-mono)", letterSpacing: "-0.02em" }}>{s.value}</div>
+                    <div style={{ fontSize: "0.7rem", color: "rgba(148,163,184,0.65)", marginTop: "0.2rem" }}>{s.label}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -344,7 +378,7 @@ export default function CTASection() {
       <style>{`
         @media (max-width: 860px) {
           .cta-top-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
-          .cta-stats { display: none !important; }
+          .cta-photo { display: none !important; }
           .form-grid { grid-template-columns: 1fr !important; gap: 3rem !important; }
         }
       `}</style>

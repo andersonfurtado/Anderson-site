@@ -192,86 +192,74 @@ export default function HeroSection() {
             </div>
           </motion.div>
 
-          {/* Right — portrait photo + credentials overlay */}
+          {/* Right card */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
             animate="show"
             transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
-            style={{ position: "relative", borderRadius: "16px", overflow: "hidden", minHeight: "540px" }}
           >
-            {/* Portrait */}
-            <img
-              src="/fotos/anderson-pb.jpg"
-              alt="Anderson Furtado"
-              style={{
-                width: "100%",
-                height: "540px",
-                objectFit: "cover",
-                objectPosition: "center top",
-                display: "block",
-                borderRadius: "16px",
-                filter: "brightness(0.78) contrast(1.05)",
-              }}
-            />
-
-            {/* Gradient vignette at bottom */}
             <div
+              className="glass-card"
               style={{
-                position: "absolute",
-                inset: 0,
+                background: "var(--bg-surface)",
                 borderRadius: "16px",
-                background: "linear-gradient(to bottom, rgba(10,10,15,0.08) 0%, rgba(10,10,15,0.0) 40%, rgba(10,10,15,0.82) 100%)",
-                pointerEvents: "none",
-              }}
-            />
-
-            {/* Credentials overlay */}
-            <div
-              style={{
-                position: "absolute",
-                bottom: 0,
-                left: 0,
-                right: 0,
-                padding: "1.5rem",
-                backdropFilter: "blur(14px)",
-                borderTop: "1px solid rgba(99,102,241,0.25)",
-                background: "rgba(10,10,15,0.65)",
-                borderRadius: "0 0 16px 16px",
+                padding: "2rem",
+                border: "1px solid var(--border)",
               }}
             >
               <div
                 style={{
-                  fontSize: "0.65rem",
-                  letterSpacing: "0.12em",
+                  fontSize: "0.7rem",
+                  letterSpacing: "0.1em",
                   textTransform: "uppercase",
                   color: "var(--accent-cyan)",
                   fontFamily: "var(--font-geist-mono)",
-                  marginBottom: "0.875rem",
+                  marginBottom: "1.5rem",
                   display: "flex",
                   alignItems: "center",
                   gap: "0.5rem",
                 }}
               >
-                <span style={{ width: "16px", height: "1px", background: "var(--accent-cyan)", display: "inline-block" }} />
+                <span style={{ width: "18px", height: "1px", background: "var(--accent-cyan)", display: "inline-block" }} />
                 Institutional Recognition
               </div>
-              <div style={{ display: "flex", flexDirection: "column", gap: "0.6rem" }}>
+
+              <blockquote
+                style={{
+                  fontSize: "0.95rem",
+                  lineHeight: 1.7,
+                  color: "var(--text-secondary)",
+                  marginBottom: "1.75rem",
+                  fontStyle: "italic",
+                }}
+              >
+                &ldquo;A global voice connecting AI governance, education policy, and enterprise strategy across institutions.&rdquo;
+              </blockquote>
+
+              <div style={{ display: "flex", flexDirection: "column", gap: "0.875rem" }}>
                 {credentials.map((c) => (
-                  <div key={c.org} style={{ display: "flex", alignItems: "flex-start", gap: "0.65rem" }}>
+                  <div
+                    key={c.org}
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: "0.75rem",
+                    }}
+                  >
                     <span
                       style={{
-                        width: "5px",
-                        height: "5px",
+                        width: "6px",
+                        height: "6px",
                         borderRadius: "50%",
                         background: "var(--accent-cyan)",
-                        marginTop: "5px",
+                        marginTop: "6px",
                         flexShrink: 0,
                       }}
                     />
                     <div>
-                      <div style={{ fontSize: "0.8rem", color: "var(--text-primary)", fontWeight: 600 }}>{c.org}</div>
-                      <div style={{ fontSize: "0.72rem", color: "rgba(148,163,184,0.7)" }}>{c.role}</div>
+                      <div style={{ fontSize: "0.85rem", color: "var(--text-primary)", fontWeight: 600 }}>{c.org}</div>
+                      <div style={{ fontSize: "0.78rem", color: "var(--text-muted)" }}>{c.role}</div>
                     </div>
                   </div>
                 ))}
