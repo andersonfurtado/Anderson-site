@@ -9,7 +9,7 @@ const credentials = [
     org: "Brazilian Ministry of Education (INEP)",
     role: "Director of National Assessments & Commission Member",
     tag: "National Education Policy",
-  desc: "Led structural review and redesign of national assessment parameters (ENEM, SAEB, ENCCEJA), impacting 10M+ participants annually. Developed AI-powered adaptive systems (ENEM Digital 2.0) and predictive models for IDEB (internal results ~98%; not validated by UN/OECD).",
+  desc: "Led structural review and redesign of national assessment parameters (ENEM, SAEB, ENCCEJA), impacting 10M+ participants annually. Developed AI-powered adaptive systems (ENEM Digital 2.0) and predictive models for IDEB (internal results ~98%).",
   },
   {
     org: "Brazilian Bar Association (OAB/DF)",
