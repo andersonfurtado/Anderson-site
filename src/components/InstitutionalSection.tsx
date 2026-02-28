@@ -9,7 +9,7 @@ const credentials = [
     org: "Brazilian Ministry of Education (INEP)",
     role: "Director of National Assessments & Commission Member",
     tag: "National Education Policy",
-  desc: "Led structural review and redesign of national assessment parameters (ENEM, SAEB, ENCCEJA), impacting 10M+ participants annually. Developed AI-powered adaptive systems (ENEM Digital 2.0) and predictive models for IDEB (~98% precision).",
+  desc: "Conceived applied AI initiatives for Brazil’s large-scale educational assessments. Led the structural review and redesign of national assessment parameters — the National High School Exam (ENEM), the Basic Education Assessment System (SAEB), and the National Exam for Certification of Youth and Adult Skills (ENCCEJA) — reaching 10M+ participants annually. Led ENEM Digital (2021) and developed AI-powered adaptive systems (ENEM Digital 2.0) and predictive models for IDEB (~98% precision).",
   },
   {
     org: "Brazilian Bar Association (OAB/DF)",
