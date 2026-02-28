@@ -4,9 +4,9 @@ const items = [
   "AI Governance",
   "G³ AI Framework",
   "Packt Publishing UK",
-  "CGEIT · ISACA",
-  "UN ECOSOC Board",
-  "OECD PISA Board",
+  "Certified in the Governance of Enterprise IT (CGEIT) · ISACA (Information Systems Audit and Control Association)",
+  "United Nations Economic and Social Council (UN ECOSOC) Board",
+  "Programme for International Student Assessment (PISA) — OECD Governing Board",
   "AI4XP Certification",
   "Olyven · California",
 ];

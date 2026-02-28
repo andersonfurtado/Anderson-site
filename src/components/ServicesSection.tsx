@@ -6,8 +6,8 @@ import { useRef } from "react";
 
 const credentials = [
   {
-    org: "UN ECOSOC",
-    subtitle: "United Nations",
+  org: "United Nations Economic and Social Council (UN ECOSOC)",
+  subtitle: "United Nations",
     role: "Board Member — Global Centre for Risk & Innovation (GCRI)",
     tag: "International",
   },
@@ -20,11 +20,11 @@ const credentials = [
   {
     org: "OECD Paris",
     subtitle: "OECD",
-    role: "PISA Governing Board Representative — AI in Education",
+  role: "Programme for International Student Assessment (PISA) Governing Board Representative — AI in Education",
     tag: "Policy",
   },
   {
-    org: "ISACA",
+  org: "ISACA (Information Systems Audit and Control Association)",
     subtitle: "Editorial Reviewer · IT & AI Governance",
     role: "Editorial Reviewer · IT & AI Governance",
     tag: "Certification",

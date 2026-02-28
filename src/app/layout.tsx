@@ -19,22 +19,22 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Anderson Furtado — AI Governance & Intelligent Systems Architecture",
   description:
-  "AI Governance & Intelligent Systems Architecture. Board Member at UN ECOSOC. Published by Packt Publishing UK. Creator of the G³ AI Framework. Global · AI & Education.",
+  "AI Governance & Intelligent Systems Architecture. Board Member at the United Nations Economic and Social Council (UN ECOSOC). Published by Packt Publishing UK. Creator of the G³ AI Framework. Global · AI & Education.",
   keywords: [
     "AI governance",
   "G³ AI Framework",
     "AI Strategies for Web Development",
   "AI4XP certification",
     "Anderson Furtado",
-    "UN ECOSOC",
-    "OECD PISA",
+  "United Nations Economic and Social Council (UN ECOSOC)",
+  "Programme for International Student Assessment (PISA)",
     "artificial intelligence governance",
   ],
   authors: [{ name: "Anderson Furtado", url: "https://andersonfurtado.com" }],
   openGraph: {
     title: "Anderson Furtado — AI Governance & Intelligent Systems Architecture",
     description:
-  "AI Governance & Intelligent Systems Architecture. Board Member at UN ECOSOC. Creator of the G³ AI Framework.",
+  "AI Governance & Intelligent Systems Architecture. Board Member at the United Nations Economic and Social Council (UN ECOSOC). Creator of the G³ AI Framework.",
     url: "https://andersonfurtado.com",
     siteName: "Anderson Furtado",
     locale: "en_US",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Anderson Furtado — AI Governance & Intelligent Systems Architecture",
     description:
-  "AI Governance & Intelligent Systems Architecture. Board Member at UN ECOSOC. Creator of the G³ AI Framework.",
+  "AI Governance & Intelligent Systems Architecture. Board Member at the United Nations Economic and Social Council (UN ECOSOC). Creator of the G³ AI Framework.",
   },
   robots: { index: true, follow: true },
 };
