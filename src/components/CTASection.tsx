@@ -131,7 +131,7 @@ export default function CTASection() {
             {/* Right — portrait photo */}
             <div style={{ position: "relative", borderRadius: "16px", overflow: "hidden" }} className="cta-photo">
               <img
-                src="/fotos/anderson.jpg"
+                src="/fotos/anderson3.jpg"
                 alt="Anderson Furtado"
                 style={{
                   width: "100%",

@@ -48,7 +48,7 @@ export default function MetricsSection() {
               }}
             >
               <span style={{ width: "20px", height: "1px", background: "var(--accent-cyan)", display: "inline-block" }} />
-              The G3 AI Framework
+              The G³ AI Framework
             </div>
 
             <h2
@@ -77,10 +77,10 @@ export default function MetricsSection() {
 
             <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "2.5rem" }}>
               <p style={{ fontSize: "1rem", lineHeight: 1.75, color: "var(--text-secondary)" }}>
-                The G3 AI Framework is the first governance methodology designed specifically for organizations scaling AI beyond proof-of-concept — where real accountability, risk, and strategy decisions happen.
+                The G³ AI Framework is the first governance methodology designed specifically for organizations scaling AI beyond proof-of-concept — where real accountability, risk, and strategy decisions happen.
               </p>
               <p style={{ fontSize: "1rem", lineHeight: 1.75, color: "var(--text-secondary)" }}>
-                Adopted by executives, board members and national institutions, G3 provides a structured operating model that transforms AI from a cost center into a strategic capability.
+                Adopted by executives, board members and national institutions, G³ provides a structured operating model that transforms AI from a cost center into a strategic capability.
               </p>
               <p style={{ fontSize: "1rem", lineHeight: 1.75, color: "var(--text-secondary)" }}>
                 Built from real deployments across healthcare, finance, and public sector — not academic theory.
@@ -107,7 +107,7 @@ export default function MetricsSection() {
               onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.opacity = "0.85"; (e.currentTarget as HTMLElement).style.transform = "translateY(-1px)"; }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.opacity = "1"; (e.currentTarget as HTMLElement).style.transform = "translateY(0)"; }}
             >
-              Explore G3AI.global →
+              Explore G³AI.global →
             </a>
           </motion.div>
 
@@ -197,7 +197,7 @@ export default function MetricsSection() {
                   fontFamily: "var(--font-geist-mono)",
                 }}
               >
-                G3 AI is the governance methodology behind AIxp Certification and the G3 AI Full Program — taught globally to executives and policy architects.
+                G³ AI is the governance methodology behind AI4XP Certification and the G³ AI Full Program — taught globally to executives and policy architects.
               </div>
             </div>
           </motion.div>

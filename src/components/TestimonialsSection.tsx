@@ -12,14 +12,14 @@ const ventures = [
     href: "https://olyven.co",
   },
   {
-    domain: "aixp.com",
-    name: "AIxp",
+    domain: "ai4xp.com",
+    name: "AI4XP",
     desc: "AI Xcelence Professional — structured programs, practical assessments and career-ready training focused on AI-powered skills, employability and professional credentials across industries.",
-    href: "#",
+    href: "https://ai4xp.com",
   },
   {
     domain: "g3ai.global",
-    name: "G3 AI",
+  name: "G³ AI",
     desc: "Global framework for AI governance and strategy — helping organizations govern, manage and strategize with artificial intelligence at institutional scale.",
     href: "https://g3ai.global",
   },
@@ -33,7 +33,7 @@ const ventures = [
     domain: "heximind.com",
     name: "HexisMind",
     desc: "Preventive intelligence for critical human systems.",
-    href: "#",
+  href: "https://hexismind.com",
   },
 ];
 

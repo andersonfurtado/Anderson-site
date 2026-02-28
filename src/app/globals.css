@@ -43,6 +43,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 88px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -53,6 +54,29 @@ body {
   font-family: var(--font-geist-sans), system-ui, sans-serif;
   line-height: 1.7;
   overflow-x: hidden;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Simple parallax helper (background attachments) */
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+@supports (-webkit-touch-callout: none) {
+  /* iOS Safari + some mobile browsers: fixed background is janky */
+  .parallax-bg { background-attachment: scroll; }
 }
 
 /* ─── Noise texture overlay ──────────────────────────────────── */

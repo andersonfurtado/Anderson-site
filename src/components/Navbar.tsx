@@ -6,7 +6,7 @@ const navLinks = [
   { label: "About", href: "#about" },
   { label: "Books & Courses", href: "#products" },
   { label: "Ventures", href: "#ventures" },
-  { label: "G3 AI", href: "#framework" },
+  { label: "G³ AI", href: "#framework" },
 ];
 
 export default function Navbar() {

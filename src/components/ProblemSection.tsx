@@ -2,12 +2,12 @@
 
 const items = [
   "AI Governance",
-  "G3 AI Framework",
+  "G³ AI Framework",
   "Packt Publishing UK",
   "CGEIT · ISACA",
   "UN ECOSOC Board",
   "OECD PISA Board",
-  "AIxp Certification",
+  "AI4XP Certification",
   "Olyven · California",
 ];
 

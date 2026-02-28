@@ -2,9 +2,9 @@
 
 const footerLinks = [
   { label: "LinkedIn", href: "https://linkedin.com/in/andersonfurtado" },
-  { label: "G3AI.global", href: "https://g3ai.global" },
+  { label: "G³AI.global", href: "https://g3ai.global" },
   { label: "Olyven", href: "https://olyven.co" },
-  { label: "AIxp", href: "https://aixp.com" },
+  { label: "AI4XP", href: "https://ai4xp.com" },
 ];
 
 const academicLinks = [

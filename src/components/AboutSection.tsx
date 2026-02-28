@@ -6,9 +6,9 @@ import { useRef } from "react";
 
 const stats = [
   { value: "6+", label: "Years in AI" },
-  { value: "9M+", label: "Assessment Participants" },
-  { value: "98%", label: "Model Accuracy" },
-  { value: "$1B+", label: "Portfolio Managed" },
+  { value: "10M+", label: "Assessment Participants" },
+  { value: "98%", label: "ML predictor for Brazil's Basic Education Quality Index (IDEB)" },
+  { value: "~$200M", label: "Portfolio Managed (approx.)" },
   { value: "2", label: "Published Books" },
   { value: "6", label: "Active Ventures" },
 ];
@@ -73,7 +73,7 @@ export default function AboutSection() {
 
             <div style={{ display: "flex", flexDirection: "column", gap: "1.1rem" }}>
               <p style={{ fontSize: "1rem", lineHeight: 1.8, color: "rgba(148,163,184,0.85)" }}>
-                I&apos;m not just a theorist. With 10+ years in technology research and educational assessment, and 6+ years deploying AI systems at production scale — I directed large-scale educational assessments reaching over 9 million participants, managed billion-dollar portfolios, and advised global governance bodies.
+                I&apos;m not just a theorist. With 10+ years in technology research and educational assessment, and 6+ years deploying AI systems at production scale — I directed large-scale educational assessments reaching 10M+ participants, managed billion-dollar portfolios, and advised global governance bodies.
               </p>
               <p style={{ fontSize: "1rem", lineHeight: 1.8, color: "rgba(148,163,184,0.85)" }}>
                 Operating globally, I bridge the gap between technical implementation and institutional governance — translating complex AI realities into actionable strategy for executives, policymakers, and practitioners worldwide.
